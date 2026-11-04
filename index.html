@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice Board | Global Institute of Technology, Jaipur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="brand">
+                <h1>Global Institute of Technology</h1>
+                <p>Digital Notice Board | Jaipur</p>
+            </div>
+            <div class="header-right">
+                <span id="current-date"></span>
+                <button id="open-modal-btn" class="btn-primary">+ Add New Notice</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container main-content">
+        <!-- Search & Filters -->
+        <div class="filter-section">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search notices by title, keyword, or department...">
+            </div>
+            <div class="category-tabs" id="category-tabs">
+                <button class="tab-btn active" data-category="All">All</button>
+                <button class="tab-btn" data-category="Academic">Academic</button>
+                <button class="tab-btn" data-category="Exams">Exams</button>
+                <button class="tab-btn" data-category="Events">Events</button>
+                <button class="tab-btn" data-category="Placements">Placements</button>
+                <button class="tab-btn" data-category="Urgent">Urgent</button>
+            </div>
+        </div>
+
+        <!-- Notices Grid -->
+        <div class="notices-grid" id="notices-grid">
+            <!-- Dynamic notices will load here -->
+        </div>
+    </main>
+
+    <!-- Add Notice Modal -->
+    <div id="notice-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Notice</h2>
+                <button id="close-modal-btn" class="close-btn">×</button>
+            </div>
+            <form id="notice-form">
+                <div class="form-group">
+                    <label>Title *</label>
+                    <input type="text" id="notice-title" required placeholder="e.g. ECE Lab Viva Schedule">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Category *</label>
+                        <select id="notice-category" required>
+                            <option value="">Select category</option>
+                            <option value="Academic">Academic</option>
+                            <option value="Exams">Exams</option>
+                            <option value="Events">Events</option>
+                            <option value="Placements">Placements</option>
+                            <option value="Urgent">Urgent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Department *</label>
+                        <select id="notice-department" required>
+                            <option value="">Select department</option>
+                            <option value="CSE">CSE</option>
+                            <option value="AI/ML">AI/ML</option>
+                            <option value="ECE">ECE</option>
+                            <option value="Civil">Civil</option>
+                            <option value="All Departments">All Departments</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Urgency Level *</label>
+                        <select id="notice-urgency" required>
+                            <option value="">Select urgency</option>
+                            <option value="Normal">Normal</option>
+                            <option value="High Priority">High Priority</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date *</label>
+                        <input type="date" id="notice-date" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Detailed Content *</label>
+                    <textarea id="notice-content" rows="4" required placeholder="Write the full notice here..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary submit-btn">Post Notice</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Notice Detail Modal -->
+    <div id="detail-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="detail-title">Notice Title</h2>
+                <button id="close-detail-btn" class="close-btn">×</button>
+            </div>
+            <div class="detail-body">
+                <div class="detail-meta">
+                    <span id="detail-category" class="badge"></span>
+                    <span id="detail-dept" class="badge-dept"></span>
+                    <span id="detail-date"></span>
+                </div>
+                <p id="detail-text"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
